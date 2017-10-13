@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+
+@font-face {
+    font-family: myFirstFont;
+    src: url(sansation_light.woff);
+}
+
+h1 {
+	color : Orange;
+	font-size: 50px;
+	font="Monospace";
+}
+</style>
+
+
+</head>
+<body style="background-color:Gray;">
+
+
+<h1>
+<font face="Monospace">
+My Trip
+</font>
+</h1>
+
+<div id="googleMap" style="width:100%;height:400px;"></div>
+
+<script>
+function myMap() {
+
+	var mapCenter = new google.maps.LatLng(55.1604, 14.8669);
+	var mapProp= {
+		center:mapCenter,
+		zoom:3,
+	};
+
+	var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+	//sweden
+	var bay = new google.maps.LatLng(59.3293, 18.0686);
+	//paris
+	var volcano = new google.maps.LatLng(48.8566, 2.3522);
+	//moscow
+	var isthmus = new google.maps.LatLng(55.7558, 37.6173);
+
+	var bayMarker = new google.maps.Marker({position: bay});
+
+	bayMarker.setMap(map);
+
+
+	var myTrip = [bay,volcano,isthmus];
+	var flightPath = new google.maps.Polyline({
+	  path:myTrip,
+	  strokeColor:"#fcfc02",
+	  strokeOpacity:0.8,
+	  strokeWeight:2
+	});
+
+	flightPath.setMap(map);
+
+
+	// second map
+	
+	var mapCenter = new google.maps.LatLng(59.3293, 18.0686);
+	var mapProp= {
+		center:mapCenter,
+		zoom:15,
+		
+	};
+
+	var mapSweden=new google.maps.Map(document.getElementById("swedenMap"),mapProp);
+	
+	var marker = new google.maps.Marker({position: mapCenter});
+
+		marker.setMap(mapSweden);
+		
+	
+
+	// third map
+	var mapCenter = new google.maps.LatLng(48.8566, 2.3522);
+	var mapProp= {
+		center:mapCenter,
+		zoom:15,
+	};
+
+	var mapParis=new google.maps.Map(document.getElementById("parisMap"),mapProp);
+	
+	var marker = new google.maps.Marker({position: mapCenter});
+
+		marker.setMap(mapParis);
+		
+		// forth map
+	var mapCenter = new google.maps.LatLng(55.7558, 37.6173);
+	var mapProp= {
+		center:mapCenter,
+		zoom:15,
+	};
+
+	var mapMoscow=new google.maps.Map(document.getElementById("moscowMap"),mapProp);
+	
+	var marker = new google.maps.Marker({position: mapCenter});
+
+		marker.setMap(mapMoscow);
+}
+		
+</script>
+
+
+<h2 style="color:white;">Stalkholm, Sweden</h2>
+
+
+<font face="Monospace" size="3" color="white">
+<p align="left">
+Stalkholm Sweden is a place I've always wanted to see. 
+<br> It is beautiful and cold most of the time.
+<br> The people are amazing there and they have great schools.
+</p>
+</font>
+
+<img src="sweden.jpg"  align="left" width="400px" hight="400px">
+
+<div id="swedenMap" style="width:400px;height:400px;"></div>
+
+<div id="swedenpalaceMap" style="width:400px;height:400px;"></div>
+
+
+<h3 style="color:white;">Paris, France</h3>
+
+<font face="Monospace" size="3" color="white">
+<p align="left">
+Paris, France is an amazing place that I would love to visit.
+<br> It is the fashion capital of the world and I would love to see the sights.
+<br> The smoking I dont love, but I think that the Eiffel tower would be SO COOL!
+</p>
+</font>
+
+<img src="paris.jpg"  align="left" width="400px" hight="400px">
+
+<div id="parisMap" style="width:400px;height:400px;"></div>
+
+
+<h4 style="color:white;">Moscow, Russia</h4>
+
+<font face="Monospace" size="3" color="white">
+<p align="left">
+Moscow, Russia is an amazing and a mysterious place. 
+<br> It is very cold and the buildings at the churches are very beautiful.
+<br> I just really want to go somewhere that I shouldn't. Moscow is in russia and I have never been there.
+</p>
+</font>
+
+<img src="moscow.jpg"  align="left" width="400px" hight="400px">
+
+<div id="moscowMap" style="width:400px;height:400px;"></div>
+
+<!-- keep this at the bottom of the body after all the other divs have been loaded -->
+<script src="https://maps.googleapis.com/maps/api/js?AIzaSyAkGLLDauTb5IwqwZJLlDhR8P9YmwSFD_M&callback=myMap"></script>
+<br>
+<br>
+<br>
+<br>
+
+<p> https://www.herbertsmithfreehills.com/sites/contenthub_mothership/files/styles/latest_thinking_images__950x650_/public/Locations-Moscow.jpg?itok=c6jbLsXg
+<br> http://www.telegraph.co.uk/content/dam/Travel/Destinations/Europe/France/Paris/paris-attractions-xlarge.jpg
+<br>http://www.telegraph.co.uk/content/dam/Travel/Destinations/Europe/Sweden/Stockholm/stockholm-aerial.jpg
+</p>
+
+</body>
+</html>
